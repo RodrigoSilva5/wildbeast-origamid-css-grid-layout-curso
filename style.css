@@ -1,0 +1,340 @@
+        /* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;700&display=swap');
+        /* reset browser */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Vollkorn', Georgia, serif;
+        }
+
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        img {
+            display: block;
+            width: 100%;
+            border-radius: 5px;
+          }          p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            letter-spacing: -0.005em;
+            color: rgba(0, 0, 0, 0.7);
+          }
+          /* Geral  */
+
+        .container{
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid:
+            "header header header"
+            "sidenav content ads" 
+            "footer footer footer" 
+            ;
+            grid-template-columns: minmax(160px, 1fr) 3fr 300px;
+        }
+        @media screen and (max-width: 1200px) {
+            .container{
+                grid: 
+                "header header "
+                "sidenav content " 
+                "ads ads"
+                "footer footer " 
+                ;
+                /* background-color: black; */
+                grid-template-columns: minmax(160px, 1fr) 3fr ;
+
+                
+            }
+            aside{
+                display: flex;
+                align-items: flex-end;
+            
+            }
+            aside > div {
+                padding:30px;
+            }
+        }
+        @media (max-width: 760px){
+
+            .container{
+                grid-template-columns: 1fr;
+                grid: 
+                "header  "
+                "sidenav "
+                "content " 
+                "ads"
+                "footer "   
+                ;
+            }
+            header{
+              grid: "first" 1fr "first" 2fr ;
+            }
+            header > ul {
+                grid-row:2;
+            }
+            
+            .sidenav > nav > ul{ 
+                display: flex;
+            }
+            .sidenav > nav > ul > li{
+                margin: 5px;
+            }
+            .sidenav >nav > ul {
+                width: 100% !important;
+                }
+                .sidenav{
+                    overflow-x: scroll !important;
+                    position: relative;
+                    overscroll-behavior-x: auto;
+                }
+                .sidenav >nav > ul >li > a {
+                    min-width: 150px !important;
+                }
+                .sidenav::after{
+                    content: "→";
+                    font-size: 1.5em;
+                    color: rgba(0, 0, 0, 0.4);
+                    position: absolute;
+                    top: 1px;
+                    left: 10px;
+                    animation: seta 0.7S ease-in 0s infinite alternate;
+                }
+ 
+
+                @keyframes seta{
+                    from{
+                        left: 10px;
+                    }
+                    to{
+                        left: 50px; 
+                    }
+                    
+                }
+
+    
+        }
+        @media (max-width: 600px) {
+            .content{
+                display: grid;
+                justify-items: center;
+                text-align: center;
+                grid-template-columns: auto;
+                grid: 
+                "titulo "
+                "subtitulo "
+                "information"
+                "p-1"
+                "wolf-1"
+                "little-p"
+                " wolf-2"
+                "p-2 "
+                "p-3"
+                "quote " 
+                "p-4"
+                "atributos "
+                "p-5"
+                "wolf-3 "
+                !important ;
+
+            }
+            
+        }
+
+        /* HEADER */
+        header {
+            grid-area: header;
+            background: linear-gradient(135deg, #8844ee, #b07dfb);
+            display: grid;
+            grid-template-columns: 50% auto;
+            align-items: center; 
+            justify-content: space-between;
+            padding:30px;
+        }
+        header >a > img{
+            width: 200px;
+        }
+        header > ul{
+            display: flex;
+        }
+        header > ul > li{
+            padding: 0 20px;
+        }
+        header > ul > li > a {
+            padding: 10px;
+            color: white;
+            background: rgba(0, 0, 0, 0.1);
+            /* font-size: 1.125em; */
+            border-radius: 5px;
+            transition: 0.1s;
+        }
+        header > ul > li > a:hover{
+            background: rgba(0, 0, 0, 0.5);
+        }
+        /* SIDENAV */
+        .sidenav{
+            grid-area: sidenav;
+            background: #fafbfc;
+            padding:30px;
+        }
+        .sidenav >nav{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+                /*
+
+                
+                
+                */
+        .sidenav >nav > ul {
+            width: 70%;
+        }
+        .sidenav >nav > ul >li > a{
+         display: block;
+          text-align: center;
+         background-color: white;   
+         box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, 0.15);
+         min-width:60px;
+         max-width: 160px;
+         padding:20px;
+         margin: 0 auto 30px auto;
+         transition: 0.3s ease-in-out;
+        }
+        .sidenav >nav > ul >li > a:hover{
+            background: #b07dfb;
+            padding:10px;
+        }
+        /* CONTENT */
+        .content{
+            grid-area: content;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding:30px;
+            margin: 0 auto;
+            justify-content: space-around;
+            gap: 30px;
+            max-width: 900px;
+            grid: 
+            "titulo information"
+            "subtitulo information"
+            "p-1 p-1"
+            "wolf-1 little-p"
+            "wolf-1 wolf-2"
+            "p-2 p-3"
+            "quote quote" 
+            "atributos p-4"
+            "atributos p-5"
+            "wolf-3 wolf-3"
+            ;
+        }
+        
+        .content > h1{
+            color: #b07dfb;
+            font-size: 3.75em;
+            line-height: 1;
+            font-weight: 700;
+            grid-area: titulo;
+        }
+        .content > h2{
+            grid-area:subtitulo;
+            font-weight: 400;
+            font-size: 0.875em;
+            color: #b07dfb;
+            margin-top: -50px;
+        }
+
+        .information{
+            grid-area:information;
+            display: flex;
+        }
+        .information > div{
+            text-align: center;
+            margin:15px;
+            width: 80px;
+            height: 100px;
+            display: grid;
+            grid-row: 80% 20%;
+            background: linear-gradient(135deg, #8844ee, #b07dfb);
+            box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, 0.15);
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 2em;
+            border-radius: 5px;
+
+        }
+        .information > div > span {
+            background-color: white;
+            padding: 5px 0;
+            font-size: 0.5em;
+            color: #b07dfb;
+        }
+
+        .p-1{grid-area:p-1;}.p-2{ grid-area:p-2;}.p-3{grid-area:p-3;}.p-4{grid-area:p-4;}.p-5{grid-area:p-5;}
+
+        .little-p{
+            grid:little-p;
+            font-size: 0.9em;
+            width: 50%;
+            color: #b07dfb;
+            font-size: 0.875em;
+            max-width: 16em;
+        }
+        .wolf-1{grid-area:wolf-1;}.wolf-2{grid-area:wolf-2;}.wolf-3{grid-area:wolf-3;}
+
+        .quote{
+            grid-area:quote;
+            font-size: 1.5em;
+            font-style: italic;
+            text-align: center;
+            margin: 0 auto;
+            color: white;
+        }
+        .atributos {
+            grid-area:atributos;
+        }
+        .atributos li {
+            color: white;
+            font-family: Courier, monospace;
+            font-size: 1.125em;
+            padding: 15px;
+          }
+          .atributos li + li {
+            border-top: 2px solid #b07dfb;
+          }
+        .quote, .atributos{
+            align-self: start;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 5px 5px 15px 0px rgba(44, 44, 44, 0.15);
+            background: linear-gradient(135deg, #8844ee, #b07dfb);
+        }
+        /* AD */
+        aside{
+            grid-area: ads;
+            background: #fafbfc;
+            padding:30px;
+        }
+        aside > div {
+            max-width: 500px;
+        }
+        aside .ad +.ad {
+            margin-top: 25px;
+        }
+        /* FOOTER */
+        footer{
+            grid-area: footer;
+            background: linear-gradient(135deg, #8844ee, #b07dfb);
+            display: grid;
+            min-height: 100px;
+            grid-template-columns: 1fr;
+            justify-items: center;
+            align-items: center;
+        }
